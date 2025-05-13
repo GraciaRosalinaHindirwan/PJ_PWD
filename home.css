@@ -1,0 +1,101 @@
+body {
+    font-family: "Quicksand";
+    background: linear-gradient(to bottom, #FFF2F2, #A9B5DF);
+}
+#logo{
+width: 200px;
+height: auto;
+margin-bottom: 5px;
+padding-bottom: 5px;
+}
+.logo-container{
+margin-top: -29px;
+text-align: left;
+border-radius: 5px;
+height: 100px;
+position: sticky;
+}
+.container{
+    margin-top: -50px;
+}
+.welcome-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+.nav-link {
+    color: white !important;
+}
+.carousel-container {
+max-width: 800px;
+margin: 0 auto;
+}
+.carousel-item img {
+height: 600px;
+width: 600px;
+object-fit: cover;
+border-radius: 10px;
+}
+.carousel-caption {
+background-color: rgba(126, 132, 162, 0.8); 
+padding: 15px;
+margin-bottom: -10px;
+border-radius: 10px;
+color: #FFF2F2;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.nav-link {
+    color: white !important;
+    position: relative;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff2f2;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+.donate-btn {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 25px;
+    background-color: #2d336b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.donate-btn:hover {
+    background-color: #7886c7;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
