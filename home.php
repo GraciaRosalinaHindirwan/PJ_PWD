@@ -37,7 +37,7 @@
           <a class="nav-link" href="#">Help</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Logout</a>
+          <a class="nav-link" href="#">Logout</a>
         </li>
       </ul>
     </div>
@@ -46,16 +46,35 @@
 
 <!-- Welcome Section -->
 <section class="welcome-section">
-    <h1 style="font-weight:600;">Welcome to OWHC</h1>
-    <p style="font-size: 18px; font-weight:400;">When we all help everyone cares</p>
-    <p style="font-size: 16px; font-weight:400; padding-top: 35px;">Please Choose a cause to support below:</p>
+    <h1 style="font-weight:600; color: #2D336B;">Welcome to OWHC</h1>
+    <p style="font-size: 18px; font-weight:400; color: #2D336B;">When we all help everyone cares</p>
+</section>
+
+<!-- About Section -->
+ <section id="about" style=" padding: 20px 20px; margin-bottom: 50px;">
+  <div style="display: flex; flex-wrap: wrap; max-width: 1000px; margin: auto; align-items: center;">  
+
+    <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 20px;">
+      <img src="charity.jpg" alt="About 1" style="width: 100%; border-radius: 12px;">
+      <img src="charity2.jpg" alt="About 2" style="width: 100%; border-radius: 12px;">
+    </div>
+
+    <div style="flex: 1; padding: 15px;">
+    <center>
+      <h1 style="color: #2D336B; font-size: 50px; margin-bottom: 40px; padding-top: -70px;">About Us</h1>
+      <p style="color: #2D336B; font-size: 20px; line-height: 1.6; margin-left: 30px;  ">
+        One World Help Care (OWHC) is a non-profit organization dedicated to bringing hope, care, and support to communities in need across the globe. Our mission is to unite hearts and hands to build a better world through collective help and compassion.
+      </p>  
+    </center>
+    </div>
+  </div>
 </section>
 
 <!-- Carousel Section -->
 <div class="container mb-4">
     <div id="donationCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-
+          <p style="font-size: 16px; font-weight:400; padding-top: 35px; text-align: center; color: #2D336B;">Please Choose a cause to support below:</p>
             <div class="carousel-item active">
                 <img src="pendidikan.jpg" class="d-block w-100" alt="Children Donation">
                 <div class="carousel-caption d-none d-md-block">
@@ -104,33 +123,14 @@
     </div>
 </div>
 
-<!-- About and contact Section -->
- <section id="about" style=" padding: 60px 20px;">
-  <div style="display: flex; flex-wrap: wrap; max-width: 1000px; margin: auto; align-items: center;">  
 
-    <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 20px;">
-      <img src="charity.jpg" alt="About 1" style="width: 100%; border-radius: 12px;">
-      <img src="charity2.jpg" alt="About 2" style="width: 100%; border-radius: 12px;">
-    </div>
-
-    <div style="flex: 1; padding: 15px;">
-    <center>
-      <h1 style="color: #2D336B; font-size: 50px; margin-bottom: 40px; padding-top: -70px;">About Us</h1>
-      <p style="color: #2D336B; font-size: 20px; line-height: 1.6; margin-left: 30px;  ">
-        One World Help Care (OWHC) is a non-profit organization dedicated to bringing hope, care, and support to communities in need across the globe. Our mission is to unite hearts and hands to build a better world through collective help and compassion.
-      </p>  
-    </center>
-    </div>
-
-  </div>
-</section>
 
 <!-- Contact Section -->
-<section style="padding: 40px 0; text-align: center;">
+<section style="padding: 40px 0; text-align: center; margin-top: 50px;">
   <h2 style="color: #2D336B;">Need Assistance?</h2>
   <p style="color: #2D336B;">Feel free to contact our support team anytime.</p>
   <div style="margin-top: 20px; color: #2D336B;">
-    <p><strong>📞 Hotline:</strong> 0800-9210-008</p>
+    <p><strong>📞 Call:</strong> 0800-9210-008</p>
     <p><strong>📧 Email:</strong> supportowhc@gmail.com</p>
   </div>
 </section>
@@ -150,7 +150,7 @@
 
       <!-- Founder 2 -->
       <div class="col-6 col-md-4 mb-4">
-        <img src="mita.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Miftahul Jannah">
+        <img src="mita2.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Miftahul Jannah">
         <p class="fw-bold mt-2">Miftahul Jannah</p>
       </div>
 
@@ -163,9 +163,6 @@
     </div>
   </div>
 </section>
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
