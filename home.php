@@ -31,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
         <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="#">Documentation</a>
+          <a class="nav-link" href="dokumentasi.html">Documentation</a>
         </li>
         <li class="nav-item" style="padding-right: 20px;">
           <a class="nav-link" href="#">Help</a>
@@ -80,7 +80,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Support Children</h5>
                     <p>Help underprivileged children with food, shelter, and education.</p>
-                    <a href="donate.php" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Donate to Healthcare</h5>
                     <p>Provide medical support to those in need.</p>
-                    <a href="donate.php" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
                     
                 </div>
             </div>
@@ -99,7 +99,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Protect the Environment</h5>
                     <p>Support eco-friendly initiatives and reforestation efforts.</p>
-                    <a href="donate.php" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
                     
                 </div>
             </div>
@@ -109,7 +109,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Economic Empowerment</h5>
                     <p>Support dreams. Provide capital for small businesses.</p>
-                    <a href="donate.php" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
                 </div>
             </div>
 
