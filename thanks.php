@@ -111,8 +111,8 @@ p {
             <img src="owhc1-removebg-preview.png" id="logo">
 
             <div class="nav-links">
-                <a href="home.html">Home</a>
-                <a href="logout.html">Logout</a>
+                <a href="home.php">Home</a>
+                <a href="login.html">Logout</a>
             </div>
         </div>
     </nav>
