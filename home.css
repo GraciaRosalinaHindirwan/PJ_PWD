@@ -26,9 +26,6 @@ position: sticky;
     height: 400px;
     object-fit: cover;
 }
-.nav-link {
-    color: white !important;
-}
 .carousel-container {
 max-width: 800px;
 margin: 0 auto;
