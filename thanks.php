@@ -63,7 +63,7 @@ if ($conn->connect_error) {
 }
 
 body {
-    background-image: url(bg_thankspage.jpg);
+    background-image: url(img/bg_thankspage.jpg);
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -108,7 +108,7 @@ p {
 <body>
  <nav>
         <div class="logo-container">
-            <img src="owhc1-removebg-preview.png" id="logo">
+            <img src="img/owhc1-removebg-preview.png" id="logo">
 
             <div class="nav-links">
                 <a href="home.php">Home</a>

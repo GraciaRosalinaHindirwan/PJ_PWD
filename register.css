@@ -46,7 +46,7 @@ input[type="checkbox"]:checked {
     align-items: center;
     border-radius: 20px;
     font-size: 17px;
-    width: auto;
+    width: 65vh;
     height: 45px;
     box-shadow: 1px 1px 4px #000000;
     margin: 20px auto 0 auto;
@@ -87,7 +87,7 @@ input[type="checkbox"]:checked {
 }
 
 #CTA2:hover{
-    background-color: #7886c7;
-    border-color: #7886c7;
+    background-color: #2d336b;
+    border-color: #2d336b;
     color: #FFF2F2;
 }

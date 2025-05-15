@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <div class="card" style="width: 70vh;">
-    <img src="header-regis.webp" class="card-img-top">
+    <img src="img/header-regis.webp" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">REGISTER</h5>
 

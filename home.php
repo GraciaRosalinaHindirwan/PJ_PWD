@@ -23,7 +23,7 @@
 <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <div class="logo-container">
-    <img src="owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
+    <img src="img/owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon bg-light"></span>
@@ -55,8 +55,8 @@
   <div style="display: flex; flex-wrap: wrap; max-width: 1000px; margin: auto; align-items: center;">  
 
     <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 20px;">
-      <img src="charity.jpg" alt="About 1" style="width: 100%; border-radius: 12px;">
-      <img src="charity2.jpg" alt="About 2" style="width: 100%; border-radius: 12px;">
+      <img src="img/charity.jpg" alt="About 1" style="width: 100%; border-radius: 12px;">
+      <img src="img/charity2.jpg" alt="About 2" style="width: 100%; border-radius: 12px;">
     </div>
 
     <div style="flex: 1; padding: 15px;">
@@ -76,7 +76,7 @@
         <div class="carousel-inner">
           <p style="font-size: 16px; font-weight:400; padding-top: 35px; text-align: center; color: #2D336B;">Please Choose a cause to support below:</p>
             <div class="carousel-item active">
-                <img src="pendidikan.jpg" class="d-block w-100" alt="Children Donation">
+                <img src="img/pendidikan.jpg" class="d-block w-100" alt="Children Donation">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Support Children</h5>
                     <p>Help underprivileged children with food, shelter, and education.</p>
@@ -85,7 +85,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="kesehatan.jpg" class="d-block w-100" alt="Environment Donation">
+                <img src="img/kesehatan.jpg" class="d-block w-100" alt="Environment Donation">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Donate to Healthcare</h5>
                     <p>Provide medical support to those in need.</p>
@@ -95,7 +95,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="bencana.jpg" class="d-block w-100" alt="Healthcare Donation">
+                <img src="img/bencana.jpg" class="d-block w-100" alt="Healthcare Donation">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Protect the Environment</h5>
                     <p>Support eco-friendly initiatives and reforestation efforts.</p>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="ekonomi.jpg" class="d-block w-100" alt="Healthcare Donation">
+                <img src="img/ekonomi.jpg" class="d-block w-100" alt="Healthcare Donation">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Economic Empowerment</h5>
                     <p>Support dreams. Provide capital for small businesses.</p>
@@ -144,19 +144,19 @@
       
       <!-- Founder 1 -->
       <div class="col-6 col-md-4 mb-4">
-        <img src="foto3.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Rachma Alycia">
+        <img src="img/foto3.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Rachma Alycia">
         <p class="fw-bold mt-2">Rachma Alycia</p>
       </div>
 
       <!-- Founder 2 -->
       <div class="col-6 col-md-4 mb-4">
-        <img src="mita2.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Miftahul Jannah">
+        <img src="img/mita2.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Miftahul Jannah">
         <p class="fw-bold mt-2">Miftahul Jannah</p>
       </div>
 
       <!-- Founder 3 -->
       <div class="col-6 col-md-4 mb-4">
-        <img src="gres.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Gracia Rosalina">
+        <img src="img/gres.jpg" class="rounded-circle border border-white border-4" style="width: 160px; height: 160px; object-fit: cover;" alt="Gracia Rosalina">
         <p class="fw-bold mt-2">Gracia Rosalina</p>
       </div>
 
