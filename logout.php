@@ -6,4 +6,5 @@ session_destroy();
 
 require_once ("route.php");
 redirect("login.php");
+exit();
 ?>
