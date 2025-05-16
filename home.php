@@ -43,9 +43,6 @@ $username = $_SESSION["username"];
         <li class="nav-item" style="padding-right: 20px;">
           <a class="nav-link" href="dokumentasi.html">Documentation</a>
         </li>
-        <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="#">Help</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>
         </li>
@@ -133,7 +130,13 @@ $username = $_SESSION["username"];
     </div>
 </div>
 
-
+<!--Tutorial Section-->
+<br>
+<div style="padding: 40px 0; text-align: center; margin-top: 50px;" class="help">
+  <h2 style="color: #2D336B;">Did You Need Help? </h2>
+  <p style="color: #2D336B;">Here's the Tutorial for help you</p>
+  <a href = "#" class="bi bi-question-circle"> Help Me! </a>
+</div>
 
 <!-- Contact Section -->
 <section style="padding: 40px 0; text-align: center; margin-top: 50px;">
