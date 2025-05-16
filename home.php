@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
+}
+
+$username = $_SESSION["username"];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +56,8 @@
 
 <!-- Welcome Section -->
 <section class="welcome-section">
-    <h1 style="font-weight:600; color: #2D336B;">Welcome to OWHC</h1>
-    <p style="font-size: 18px; font-weight:400; color: #2D336B;">When we all help everyone cares</p>
+    <h1 style="font-weight:600; color: #2D336B;">Hello <?php echo htmlspecialchars($username); ?> !</h1>
+    <p style="font-size: 20px; font-weight:400; color: #2D336B;">Welcome to OWHC</p>
 </section>
 
 <!-- About Section -->
