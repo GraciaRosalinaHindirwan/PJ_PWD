@@ -1,5 +1,6 @@
 <?php 
 include_once("koneksi.php");
+require_once("route.php"); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = ($_POST["email"]);
@@ -8,19 +9,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm = ($_POST["confirm"]);
     $check = isset ($_POST["check"]);
 
- //validasi 
+ //validasi
    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION["login_error"] = "Format E-mail Tidak Valid";
-            require_once("route.php");
-            redirect("register.php");
+        redirect("register.php");
    } if (strlen($username) < 3) {
     $_SESSION["login_error"] = "Username Minimal 3 Karakter";
+    redirect("register.php");
    } if ($password != $confirm) {
     $_SESSION["login_error"] = "Password Tidak Sama";
+    redirect("register.php");
    } if (strlen($password)<6) {
     $_SESSION["login_error"] = "Password Minimal 6 Karakter";
+    redirect("register.php");
    } if(!$check){
     $_SESSION["login_error"] = "Anda Harus Menyetujui Syarat dan Ketentuan";
+    redirect("register.php");
    }
 
     $username = htmlspecialchars($username);
@@ -41,12 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$email, $username, $password]);
         if ($stmt -> rowcount()) {
         $_SESSION["login_error"] = "Register Berhasil";
-        require_once("route.php");
         redirect("login.php");
         }
        } catch(Exception $e){
             $_SESSION["login_error"] = "Invalid Username or E-mail";
-            require_once("route.php");
             redirect("register.php");
        }
     }
