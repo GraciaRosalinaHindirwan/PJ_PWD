@@ -17,12 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once ("route.php");
         redirect("home.php");
   } else {
-    $_SESSION['login_error'] = "Invalid Username or Password";
+        $_SESSION["login_error"] = "Invalid Username or Password";
         require_once("route.php");
         redirect("login.php");
-    if (!empty($login_error)) {
-       echo "<p style='color:red;'>$login_error</p>";
-    }
   }
 
     exit();
@@ -42,12 +39,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="header">
-        <img src="owhc.png" alt="">
+        <img src="img/owhc.png" alt="">
     </div>
     
 <div class="container">
     <div class="login">
        <h1 style="color: #7886c7;" class="bi bi-person">Login</h1> <br>
+       <?php if (isset ($_SESSION["login_error"])) :?>
+        <?php $login_error = $_SESSION["login_error"];
+        unset($_SESSION["login_error"]);
+        ?>
+            <p style = "color:red;"><?= $login_error ?></p>
+        <?php endif; ?>
             <form action="login.php" method="post">
                 <div class="card-text">
                     <div class="form-floating">
