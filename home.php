@@ -27,10 +27,24 @@ $username = $_SESSION["username"];
     background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.help-link {
+  color: #2D336B;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.help-link:hover {
+  color:rgb(79, 92, 206); 
+  transform: scale(1.15); 
+  text-shadow: 0 0 5 rgb(134, 139, 183); 
+}
+
 </style>
 <body>
 
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
     <div class="logo-container">
     <img src="img/owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
@@ -52,13 +66,13 @@ $username = $_SESSION["username"];
 </nav>
 
 <!-- Welcome Section -->
-<section class="welcome-section">
+<section class="welcome-section" style="margin-top: 70px;">
     <h1 style="font-weight:600; color: #2D336B;">Hello <?php echo htmlspecialchars($username); ?> !</h1>
     <p style="font-size: 20px; font-weight:400; color: #2D336B;">Welcome to OWHC</p>
 </section>
 
 <!-- About Section -->
- <section id="about" style=" padding: 20px 20px; margin-bottom: 50px;">
+ <section id="about" style=" padding: 20px 20px; margin-bottom: 50px; ">
   <div style="display: flex; flex-wrap: wrap; max-width: 1000px; margin: auto; align-items: center;">  
 
     <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 20px;">
@@ -131,11 +145,10 @@ $username = $_SESSION["username"];
 </div>
 
 <!--Tutorial Section-->
-<br>
 <div style="padding: 40px 0; text-align: center; margin-top: 50px;" class="help">
   <h2 style="color: #2D336B;">Did You Need Help? </h2>
   <p style="color: #2D336B;">Here's the Tutorial for help you</p>
-  <a href = "#" class="bi bi-question-circle"> Help Me! </a>
+  <a href = "#" class="bi bi-question-circle help-link"> Help Me! </a>
 </div>
 
 <!-- Contact Section -->
