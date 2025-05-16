@@ -4,7 +4,7 @@ require_once("koneksi.php");
 
 if (isLogin()) {
     require_once ("route.php");
-  redirect("home.php");
+    redirect("home.php");
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        <h1 style="color: #7886c7;" class="bi bi-person">Login</h1> <br>
        <?php if (isset ($_SESSION["login_error"])) :?>
         <?php $login_error = $_SESSION["login_error"];
-        unset($_SESSION["login_error"]);
+            unset($_SESSION["login_error"]);
         ?>
             <p style = "color:red;"><?= $login_error ?></p>
         <?php endif; ?>
@@ -74,8 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </form> 
     </div>
-
 </div>
-     
 </body>
 </html>

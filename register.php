@@ -13,15 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  //validasi 
    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error[] = "Format E-mail Tidak Valid";
+    $_SESSION["login_error"] = "Format E-mail Tidak Valid";
    } if (strlen($username) < 3) {
-    $error[] = "Username Minimal 3 Karakter";
+    $_SESSION["login_error"] = "Username Minimal 3 Karakter";
    } if ($password != $confirm) {
-    $error[] = "Password Tidak Sama";
+    $_SESSION["login_error"] = "Password Tidak Sama";
    } if (strlen($password)<6) {
-    $error[] = "Password Minimal 6 Karakter";
+    $_SESSION["login_error"] = "Password Minimal 6 Karakter";
    } if(!$check){
-    $error[] = "Anda Harus Menyetujui Syarat dan Ketentuan";
+    $_SESSION["login_error"] = "Anda Harus Menyetujui Syarat dan Ketentuan";
    }
 
     $username = htmlspecialchars($username);
@@ -67,6 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <img src="img/header-regis.webp" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">REGISTER</h5>
+        <?php if (isset ($_SESSION["login_error"])) :?>
+        <?php $login_error = $_SESSION["login_error"];
+            unset($_SESSION["login_error"]);
+        ?>
 
 <form action="register.php" method="POST">
         <div class="card-text">
