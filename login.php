@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $result = loginAttempt($username, $password);
 
     if ($result) {
+        $_SESSION["username"] = $username;
         require_once ("route.php");
         redirect("home.php");
   } else {
