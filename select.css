@@ -1,4 +1,5 @@
 body{
+    font-family: "Quicksand";
     background-image: url(img/bg_choose.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -22,7 +23,7 @@ header img{
 
 header h3{
     color: #2D336B;
-    text-shadow: 1px 1px 2px #000000;
+    font-weight: bolder;
 }
 .card-container {
     display: flex;
@@ -41,6 +42,7 @@ header h3{
 .card-title{
    color: #2D336B;
    font-style: bold;
+   font-weight: bolder;
 }
 
 .btn-primary{
