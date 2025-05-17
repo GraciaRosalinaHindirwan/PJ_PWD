@@ -1,7 +1,6 @@
 body {
     font-family: "Quicksand";
-    background: linear-gradient(to bottom, #FFF2F2, #A9B5DF) !important;
-    background-image: url(bg_form.jpeg);
+    background-image: url(img/bg_form.jpeg)!important;
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;

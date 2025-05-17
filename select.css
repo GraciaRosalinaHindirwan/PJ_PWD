@@ -5,15 +5,30 @@ body{
     background-position: center;
     background-size:cover;
 }
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    filter: blur(6px);
+}
+body::after {
+    content: ""; /* biar ada efek blur */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); 
+    z-index: -1;
+}
 
 header{
-    background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    display: flex;
-    height: 80px;
-    justify-content: space-between;
-    align-items: center; 
+    width: 200px;
+height: auto;
+margin-bottom: 5px;
+    
 }
 
 header img{
@@ -21,17 +36,14 @@ header img{
     margin-right: 10px;
 }
 
-header h3{
-    color: #2D336B;
-    font-weight: bolder;
-}
+
 .card-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap; 
     margin: 100px; 
     margin-top: 10vh;
-    align-items: center;
+    align-items: stretch;
 }
 
 .card {

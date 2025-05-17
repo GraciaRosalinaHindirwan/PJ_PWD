@@ -103,7 +103,7 @@ $username = $_SESSION["username"];
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Support Children</h5>
                     <p>Help underprivileged children with food, shelter, and education.</p>
-                    <a href="select.html" class="btn btn-warning donate-btn">Help Now</a>
+                    <a href="select.html" class="btn donate-btn">Help Now</a>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@ $username = $_SESSION["username"];
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Help to Healthcare</h5>
                     <p>Provide medical support to those in need.</p>
-                    <a href="select.html" class="btn btn-warning donate-btn">Help Now</a>
+                    <a href="select.html" class="btn donate-btn">Help Now</a>
                     
                 </div>
             </div>
@@ -122,7 +122,7 @@ $username = $_SESSION["username"];
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Protect the Environment</h5>
                     <p>Support eco-friendly initiatives and reforestation efforts.</p>
-                    <a href="select.html" class="btn btn-warning donate-btn">Help Now</a>
+                    <a href="select.html" class="btn donate-btn">Help Now</a>
                     
                 </div>
             </div>
@@ -132,7 +132,7 @@ $username = $_SESSION["username"];
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Economic Empowerment</h5>
                     <p>Support dreams. Provide capital for small businesses.</p>
-                    <a href="select.html" class="btn btn-warning donate-btn">Help Now</a>
+                    <a href="select.html" class="btn donate-btn">Help Now</a>
                 </div>
             </div>
 
