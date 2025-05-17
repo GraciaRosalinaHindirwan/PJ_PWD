@@ -101,16 +101,16 @@ $username = $_SESSION["username"];
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Support Children</h5>
                     <p>Help underprivileged children with food, shelter, and education.</p>
-                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Help Now</a>
                 </div>
             </div>
 
             <div class="carousel-item">
                 <img src="img/kesehatan.jpg" class="d-block w-100" alt="Environment Donation">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Donate to Healthcare</h5>
+                    <h5>Help to Healthcare</h5>
                     <p>Provide medical support to those in need.</p>
-                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Help Now</a>
                     
                 </div>
             </div>
@@ -120,7 +120,7 @@ $username = $_SESSION["username"];
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Protect the Environment</h5>
                     <p>Support eco-friendly initiatives and reforestation efforts.</p>
-                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Help Now</a>
                     
                 </div>
             </div>
@@ -130,7 +130,7 @@ $username = $_SESSION["username"];
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Economic Empowerment</h5>
                     <p>Support dreams. Provide capital for small businesses.</p>
-                    <a href="form.html" class="btn btn-warning donate-btn">Donate Now</a>
+                    <a href="form.html" class="btn btn-warning donate-btn">Help Now</a>
                 </div>
             </div>
 
@@ -148,7 +148,7 @@ $username = $_SESSION["username"];
 <div style="padding: 40px 0; text-align: center; margin-top: 50px;" class="help">
   <h2 style="color: #2D336B;">Did You Need Help? </h2>
   <p style="color: #2D336B;">Here's the Tutorial for help you</p>
-  <a href = "#" class="bi bi-question-circle help-link"> Help Me! </a>
+  <a href = "#" class="bi bi-question-circle help-link"> Click Me! </a>
 </div>
 
 <!-- Contact Section -->
