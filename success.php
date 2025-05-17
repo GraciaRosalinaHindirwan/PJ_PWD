@@ -1,3 +1,15 @@
+<?php
+session_start();
+include_once("koneksi.php");
+require_once("route.php"); 
+
+if (!isset($_SESSION["username"])) {
+    redirect("login.php");
+    exit();
+}
+
+$username = $_SESSION["username"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +48,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Thank You, Volunteer!</h5>
+                        <h5 class="card-title">Thank You, <?php echo htmlspecialchars($username); ?> ! </h5>
                         <p class="card-text">"Thank you for joining us as a volunteer. Your commitment and support are invaluable to our efforts, and we look forward to working with you."</p>
                         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                         <a href="home.php" class="btn btn-primary mt-3">Back to Home</a>
