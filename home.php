@@ -1,8 +1,10 @@
 <?php
 session_start();
+include_once("koneksi.php");
+require_once("route.php"); 
 
 if (!isset($_SESSION["username"])) {
-    header("Location: login.php");
+    redirect("login.php");
     exit();
 }
 

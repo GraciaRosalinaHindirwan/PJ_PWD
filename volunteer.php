@@ -1,9 +1,12 @@
 <?php
 session_start();
-
 include_once("koneksi.php");
 include_once("route.php"); 
 
+if (!isset($_SESSION["username"])) {
+    redirect("login.php");
+    exit();
+}
 
 $name = "";
 $skill = "";

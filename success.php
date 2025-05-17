@@ -1,3 +1,9 @@
+<?php 
+session_start();
+include_once("koneksi.php");
+require_once("route.php"); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
