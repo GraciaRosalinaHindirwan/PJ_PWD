@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include_once("koneksi.php");
 require_once("route.php"); 
 
@@ -10,51 +11,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check = isset ($_POST["check"]);
 
  //validasi
+ $errors = array();
    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $_SESSION["login_error"] = "Format E-mail Tidak Valid";
-        redirect("register.php");
+   $errors[] = "Format E-mail Tidak Valid";
    } if (strlen($username) < 3) {
-    $_SESSION["login_error"] = "Username Minimal 3 Karakter";
-    redirect("register.php");
+   $errors[] = "Username Minimal 3 Karakter";
    } if ($password != $confirm) {
-    $_SESSION["login_error"] = "Password Tidak Sama";
-    redirect("register.php");
+   $errors[] = "Password Tidak Sama";
    } if (strlen($password)<6) {
-    $_SESSION["login_error"] = "Password Minimal 6 Karakter";
-    redirect("register.php");
+   $errors[] = "Password Minimal 6 Karakter";
    } if(!$check){
-    $_SESSION["login_error"] = "Anda Harus Menyetujui Syarat dan Ketentuan";
-    redirect("register.php");
+   $errors[] = "Anda Harus Menyetujui Syarat dan Ketentuan";
    }
 
     $username = htmlspecialchars($username);
     $email = htmlspecialchars($email);
 
-   if (!empty($error)) {
-    foreach ($error as $error) {
-       echo "<p style='color:red;'>$error</p>";
-    }
-   }
+   if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        redirect("register.php"); 
+        exit(); 
+   } else {
+        try {
+            $connection = getConnection();
+            $sql = "INSERT INTO user (email, username, password) VALUE (?, ?, ?)";
+            $stmt = $connection->prepare($sql); //prepared statement 
+            $stmt->execute([$email, $username, $password]);
+            $_SESSION["success_message"] = "Register Berhasil";
+            redirect("login.php");
+            exit();
 
-    if (empty($error)) {
-       $sql = "INSERT INTO user (email, username, password) VALUE (?, ?, ?)";
-       $connection = getConnection();
-       $stmt = $connection->prepare($sql); //prepared statement 
-
-       try{
-        $stmt->execute([$email, $username, $password]);
-        if ($stmt -> rowcount()) {
-        $_SESSION["login_error"] = "Register Berhasil";
-        redirect("login.php");
-        }
-       } catch(Exception $e){
-            $_SESSION["login_error"] = "Invalid Username or E-mail";
+        } catch (PDOException $e) {
+            $_SESSION['errors'] = "Terjadi Kesalahan";
             redirect("register.php");
-       }
-    }
-}
-
-
+            exit();
+            
+        }
+   }
+} 
 ?>
 
 <!DOCTYPE html>
@@ -109,14 +103,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </form>
 
-<div class="info">
-     <?php if (isset ($_SESSION["login_error"])) :?>
-        <?php $login_error = $_SESSION["login_error"];
-            unset($_SESSION["login_error"]);
-        ?>
-        <p style = "color:red;"><?= $login_error ?></p>
-        <?php endif; ?>
 
+<div class="info">
+    <?php
+            if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+                echo '<div class="alert alert-danger" role="alert">';
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo '<div>' . htmlspecialchars($error) . '</div>';
+                    }
+                echo '</div>';
+                unset($_SESSION['errors']); 
+            }?>
+    
+         <?php if (isset ($_SESSION["success_message"])) :?>
+            <?php $success_message = $_SESSION["success_message"];
+                unset($_SESSION["success_message"]);
+            ?>
+            <p style = "color:red;"><?= $success_message ?></p>
+            <?php endif; ?>
     <h1>Hello,</h1> <br>
     <p>Hello client, welcome to registration page. 
         Please fill out the form on the side to get more complete features. 
