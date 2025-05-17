@@ -64,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <title>Register Page</title>
     <link rel="stylesheet" href="register.css">
 </head>
@@ -71,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="card" style="width: 70vh;">
     <img src="img/header-regis.webp" class="card-img-top">
     <div class="card-body">
-        <h5 class="card-title">REGISTER</h5>
+        <h5 class="card-title">REGISTER</h5> <br>
 <form action="register.php" method="POST">
         <div class="card-text">
             <div class="form-floating">
@@ -82,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingUsername" placeholder="Username" name="username" required>
                 <label for="floatingUsername" class="bi bi-person"> Username</label>
-            </div>
+            </div> <br>
             <div class="row">
                 <div class="col">
                     <label for="formGroupExampleInput" class="bi bi-key"> Password</label>

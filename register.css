@@ -4,7 +4,8 @@ body {
     justify-content: space-between;
     align-items: center;    
     min-height: 100vh;  
-    flex-wrap: nowrap;        
+    flex-wrap: nowrap;   
+    font-family: "Quicksand";     
 }
 
 .card{
@@ -20,6 +21,11 @@ body {
     width: auto; 
     height: 100vh;
     max-width: 70vh;
+}
+
+.card-title {
+    color: #2d336b;
+    text-align: center;
 }
 
 .card h5{
