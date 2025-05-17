@@ -1,3 +1,68 @@
+<?php
+session_start();
+
+include_once("koneksi.php");
+include_once("route.php"); 
+
+
+$name = "";
+$skill = "";
+$avail = "";
+$status = "";
+$date = "";
+
+$errors = array();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST["name"]); 
+    $skill = trim($_POST["skill"]);
+    $avail = trim($_POST["avail"]);
+    $status = trim($_POST["status"]);
+    $date = trim($_POST["date"]);
+
+    // Validasi input
+    if (empty($name)) {
+        $errors[] = "Nama lengkap harus diisi.";
+    }
+    if (empty($skill)) {
+        $errors[] = "Keterampilan harus diisi.";
+    }
+    if (empty($avail)) {
+        $errors[] = "Ketersediaan harus diisi.";
+    }
+    if (empty($status)) {
+        $errors[] = "Status harus diisi.";
+    }
+    if (empty($date)) {
+        $errors[] = "Tanggal pendaftaran harus diisi.";
+    }
+
+  
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        redirect("volunteer.php"); 
+        exit(); 
+    } else {
+        try {
+            $connection = getConnection(); 
+            $sql = "INSERT INTO volunteer (name, skill, avail, status, date) VALUES (?, ?, ?, ?, ?)";
+            
+            $stmt = $connection->prepare($sql); // 
+
+            $stmt->execute([$name, $skill, $avail, $status, $date]);
+            
+            $_SESSION['success_message'] = "Pendaftaran berhasil!";
+            redirect("success.html"); 
+            exit(); 
+        } catch (PDOException $e) { 
+            $_SESSION['errors'] = ["Terjadi kesalahan: " . $e->getMessage()];
+            redirect("volunteer.php"); 
+            exit(); 
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,33 +82,51 @@
             Fill This Form
         </div>
         <div class="card-body">
+        <form action="volunteer.php" method="POST">
+                <?php
+                if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+                echo '<div class="alert alert-danger" role="alert">';
+                foreach ($_SESSION['errors'] as $error) {
+                    echo '<div>' . htmlspecialchars($error) . '</div>';
+                }
+                echo '</div>';
+                unset($_SESSION['errors']); 
+            }?>
+
+            <?php if (isset ($_SESSION["success_massage"])) : ?>
+                <?php $success_massage = $_SESSION["success_massage"];
+                unset($_SESSION["success_massage"]);
+                ?>
+            <p style = "color:red;"><?= $success_massage ?></p>
+            <?php endif; ?>
+
             <h5 class="card-title">Welcome Volunteers!</h5>
             <p class="card-text">"We warmly welcome you to our volunteer team and appreciate you choosing to share your time and skills with us."</p>
-            <form action="">
+            
             <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="fullname" aria-describedby="first">
+                <input type="text" class="form-control" id="fullname" aria-describedby="first" name="name">
             </div>
             <div class="mb-3">
                 <label for="Skill" class="form-label">Skills</label>
-                <input type="text" class="form-control" id="skill" aria-describedby="skill">
+                <input type="text" class="form-control" id="skill" aria-describedby="skill" name="skill">
                 <div id="skill" class="form-text">ex:  Graphic Design, Event Management, Marketing </div>
             </div>
              <div class="mb-3">
                 <label for="avail" class="form-label">Available</label>
-                <input type="text" class="form-control" id="Avail" aria-describedby="Avail">
+                <input type="text" class="form-control" id="avail" aria-describedby="Avail" name="avail">
                 <div id="skill" class="form-text">ex: Monday, Wednesday afternoon, Weekday </div>
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <input type="text" class="form-control" id="status" aria-describedby="status">
+                <input type="text" class="form-control" id="status" aria-describedby="status" name="status">
                 <div id="skill" class="form-text">ex: Pending, Active, not Active </div>
             </div>
             <div class="mb-3">
                 <label for="date" class="form-label">Registation Date</label>
-                <input type="date" class="form-control" id="date" aria-describedby="date">
+                <input type="date" class="form-control" id="date" aria-describedby="date" name="date">
             </div>
-            <a href="#" class="btn btn-primary">Join</a>
+            <button type="submit" class="btn btn-primary"> JOIN </button>
         </form>
         </div>
     </div>
