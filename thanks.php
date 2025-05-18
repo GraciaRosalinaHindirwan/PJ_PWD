@@ -1,7 +1,11 @@
 <?php
 include_once("koneksi.php");
 require_once("route.php"); 
+require_once("auth.php");
 
+if (!isLogin()) {
+    redirect("login.php");
+}
 
 ?>
 

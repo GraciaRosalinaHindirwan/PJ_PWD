@@ -1,11 +1,11 @@
 <?php
 session_start();
 include_once("koneksi.php");
-require_once("route.php"); 
+require_once("route.php");
+require_once("auth.php");
 
-if (!isset($_SESSION["username"])) {
+if (!isLogin()) {
     redirect("login.php");
-    exit();
 }
 
 $username = $_SESSION["username"];
