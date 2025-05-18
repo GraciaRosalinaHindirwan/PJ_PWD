@@ -1,3 +1,13 @@
+<?php 
+include_once("koneksi.php");
+require_once("route.php"); 
+
+if (!isset($_SESSION["username"])) {
+    redirect("login.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

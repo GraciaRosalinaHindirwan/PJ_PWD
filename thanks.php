@@ -1,14 +1,8 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "donasi";
+include_once("koneksi.php");
+require_once("route.php"); 
 
-$conn = new mysqli($host, $user, $pass, $db);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 ?>
 
 <!DOCTYPE html>
@@ -18,93 +12,7 @@ if ($conn->connect_error) {
     <title>Donation Confirmation</title>
     <link rel="stylesheet">
 </head>
-<style>
-##logo{
-    width: 200px;
-    height: auto;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-}
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: right;
-    margin-bottom: 30px;
-    margin-top: 0;
-    height: 100px;
-    position: sticky;
-}
-
-.logo-container img {
-    height: 100px;
-    width: auto;
-    margin-right: 12px;
-}
-
-.logo-container span {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff2f2;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    margin-left: auto;
-    padding-right: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #2d336b;
-}
-
-body {
-    background-image: url(img/bg_thankspage.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-.content {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #a9b5dfb3;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h2 {
-    color: #2d336b;
-}
-
-p {
-    margin: 10px 0;
-}
-
-.return-button {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: white;
-    background-color: #2d336b;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.return-button:hover {
-    background-color: #a9b5dfb3;
-}
-
-</style>
 <body>
  <nav>
         <div class="logo-container">
@@ -117,7 +25,6 @@ p {
         </div>
     </nav>
 <?php
-echo '<div class="content">';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = htmlspecialchars($_POST['nama']);
     $email = htmlspecialchars($_POST['email']);
