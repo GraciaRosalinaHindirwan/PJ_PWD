@@ -1,3 +1,14 @@
+<?php 
+include_once("koneksi.php");
+require_once("route.php"); 
+require_once("auth.php");
+
+if (!isLogin()) {
+    redirect("login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +49,7 @@
             <p class="card-text">When you donate to OWHC, 
                 you're investing in tangible results. We are committed to transparency, 
                 ensuring that your generosity is utilized efficiently and effectively to maximize its impact. </p>
-            <a href="form.html" class="btn btn-primary"> Join </a>
+            <a href="form.php" class="btn btn-primary"> Join </a>
         </div>
     </div>
 </div>

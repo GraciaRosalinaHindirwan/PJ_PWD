@@ -2,10 +2,10 @@
 session_start();
 include_once("koneksi.php");
 include_once("route.php"); 
+require_once("auth.php");
 
-if (!isset($_SESSION["username"])) {
+if (!isLogin()) {
     redirect("login.php");
-    exit();
 }
 
 $name = "";
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute([$name, $skill, $avail, $status, $date]);
             
             $_SESSION['success_message'] = "Pendaftaran berhasil!";
-            redirect("success.html"); 
+            redirect("success.php"); 
             exit(); 
         } catch (PDOException $e) { 
             $_SESSION['errors'] = ["Terjadi kesalahan: " . $e->getMessage()];
