@@ -48,7 +48,7 @@ if (!isset($_SESSION["username"])) {
             <p class="card-text">When you donate to OWHC, 
                 you're investing in tangible results. We are committed to transparency, 
                 ensuring that your generosity is utilized efficiently and effectively to maximize its impact. </p>
-            <a href="form.html" class="btn btn-primary"> Join </a>
+            <a href="form.php" class="btn btn-primary"> Join </a>
         </div>
     </div>
 </div>
