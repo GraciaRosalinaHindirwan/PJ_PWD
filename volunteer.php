@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("koneksi.php");
 include_once("route.php"); 
 require_once("auth.php");
@@ -108,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </nav>
     <div class="card" style="margin-top: 130px; ">
         <div class="card-header">
-            Fill This Form
+            Please Fill This Form
         </div>
         <div class="card-body">
         <form action="volunteer.php" method="POST">
