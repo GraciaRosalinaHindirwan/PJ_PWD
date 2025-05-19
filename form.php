@@ -7,6 +7,45 @@ if (!isLogin()) {
     redirect("login.php");
 }
 
+$errors = array();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = ($_POST["name"]);
+    $donationType = ($_POST["donationType"]);
+    $amount = ($_POST["amount"]);
+    $massage = ($_POST["massage"]);
+    $date = ($_POST["date"]);
+    
+    if (empty($name)) {
+      $errors[] = "name cannot be empty";
+    } if (empty($date)) {
+      $errors[] = "date must be fill";
+    }   if ($amount === false || $amount <= 0) { 
+        $errors[] = "Jumlah donasi harus berupa angka positif.";
+    }
+    
+    if (!empty($errors)) {
+      $_SESSION['errors'] = $errors;
+      redirect("form.php"); 
+      exit(); 
+    } else {
+      try {
+        $connection = getConnection();
+        $sql = "INSERT INTO donate (name, donation_type, amount, massage, date) VALUE (?, ?, ?, ?, ?)";
+        $stmt = $connection->prepare($sql); //prepared statement 
+        $stmt->execute([$name, $donationType, $amount, $massage, $date]);
+        $_SESSION["success_message"] = "Form Successfully Submitted";
+        redirect("thanks.php");
+        exit();
+      } catch (PDOException $e) {
+        $_SESSION['errors'] =  "Something is Wrong";
+        redirect("form.php");
+        exit();
+        }
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,12 +93,26 @@ if (!isLogin()) {
 
     <div class="container" style="margin-top: 140px;">
         <h2>Donation Form</h2>
-        <form action="form.php" method="POST">
-            <label for="nama">Name:</label>
-            <input type="text" id="nama" name="nama" required>
+         <?php
+                if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+                echo '<div class="alert alert-danger" role="alert">';
+                foreach ($_SESSION['errors'] as $error) {
+                    echo '<div>' . htmlspecialchars($error) . '</div>';
+                }
+                echo '</div>';
+                unset($_SESSION['errors']); 
+            }?>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <?php if (isset ($_SESSION["success_massage"])) : ?>
+                <?php $success_massage = $_SESSION["success_massage"];
+                unset($_SESSION["success_massage"]);
+                ?>
+            <p style = "color:red;"><?= $success_massage ?></p>
+            <?php endif; ?>
+
+        <form action="form.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
             <label for="qris">Scan QRIS for payment:</label>
             <img src="img/qris.png" alt="QRIS Payment" id="qris">
@@ -82,18 +135,21 @@ if (!isLogin()) {
                 <button type="button" onclick="selectAmount(10000)">Rp 10k</button>
             </div>
 
-            <label for="jumlah">Donation Amount (Rp):</label>
-            <input type="number" id="jumlah" name="jumlah" required>
+            <label for="amount">Donation Amount (Rp):</label>
+            <input type="number" id="amount" name="amount" required>
 
             <label for="pesan">Message (optional):</label>
-            <textarea id="pesan" name="pesan" rows="4"></textarea>
+            <textarea id="pesan" name="massage" rows="4"></textarea>
+
+            <label for="date">Date: </label>
+            <input type="date" id="date" name="date" required>
 
             <button type="submit">Donation Now</button>
         </form>
     </div>
     <script>
         function selectAmount(amount) {
-            document.getElementById('jumlah').value = amount;
+            document.getElementById('amount').value = amount;
         }
     </script>
 </body>
