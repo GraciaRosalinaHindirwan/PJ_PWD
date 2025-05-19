@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("koneksi.php");
 require_once("route.php"); 
 require_once("auth.php");
@@ -31,12 +30,6 @@ $username = $_SESSION["username"];
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
-                    <li class="nav-item" style="padding-right: 20px;">
-                        <a class="nav-link" style="color: #2d336b;">THANK YOU</a> </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
