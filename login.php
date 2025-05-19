@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result) {
         $_SESSION["username"] = $username;
+        $_SESSION["user_id"] = $result["id"];
         require_once ("route.php");
         redirect("home.php");
   } else {
