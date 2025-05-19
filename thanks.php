@@ -14,6 +14,11 @@ if (!isLogin()) {
 <head>
     <meta charset="UTF-8">
     <title>Donation Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet">
 </head>
 <style>
@@ -114,22 +119,23 @@ p {
             </div>
         </div>
     </nav>
+    <?php
     echo '<div class="content">';
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nama = htmlspecialchars($_POST['nama']);
-        $donationType = htmlspecialchars($_POST['donationType']);
-        $jumlah = (int) $_POST['jumlah'];
-        $pesan = htmlspecialchars($_POST['pesan']);
+        $donation_type = htmlspecialchars($_POST['donation_type']);
+        $amount = (int) $_POST['amount'];
+        $massage = htmlspecialchars($_POST['amount']);
 
-        $stmt = $conn->prepare("INSERT INTO donasi (nama, donation_type, jumlah, pesan) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssds", $nama, $donationType, $jumlah, $pesan);
+        $stmt = $conn->prepare("INSERT INTO donasi (nama, donation_type, amount, massage) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssds", $nama, $donation_type, $amount, $massage);
 
         if ($stmt->execute()) {
         echo "<h2>Thank you for your donation, $nama!</h2><br>";
-        echo "<p>Donation type: $donationType</p>";
-        echo "<p>Donation amount: Rp " . number_format($jumlah, 0, ',', '.') . "</p>";
-        if (!empty($pesan)) {
-            echo "<p>Your message: $pesan</p><br>";
+        echo "<p>Donation type: $donation_type</p>";
+        echo "<p>Donation amount: Rp " . number_format($amount, 0, ',', '.') . "</p>";
+        if (!empty($massage)) {
+            echo "<p>Your message: $massage</p><br>";
         }
         echo "<a href='home.html' class='return-button'>Return to home page</a>";
         } else {
@@ -142,5 +148,6 @@ p {
     echo "<p>Please fill out the form first!</p>";
     }
 ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
