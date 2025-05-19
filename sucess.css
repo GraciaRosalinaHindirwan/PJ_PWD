@@ -58,3 +58,8 @@ body{
     background-color: #7886c7;
     border-color: #7886c7;
 }
+
+.button{
+    display: flex;
+    justify-content: space-between;
+}

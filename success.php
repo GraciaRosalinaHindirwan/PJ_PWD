@@ -44,7 +44,10 @@ $username = $_SESSION["username"];
                         <h5 class="card-title">Thank You, <?php echo htmlspecialchars($username); ?> ! </h5>
                         <p class="card-text">"Thank you for joining us as a volunteer. Your commitment and support are invaluable to our efforts, and we look forward to working with you."</p>
                         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                        <a href="home.php" class="btn btn-primary mt-3">Back to Home</a>
+                        <div class="button">
+                            <a href="home.php" class="btn btn-primary mt-3">Back to Home</a>
+                            <a href="check.php" class="btn btn-primary mt-3">Check Other volunteers </a>
+                        </div>
                     </div>
                 </div>
             </div>
