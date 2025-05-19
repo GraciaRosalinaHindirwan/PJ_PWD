@@ -11,7 +11,43 @@ body {
     background-size: cover;
     background-position: center;
 }
+#logo{
+width: 200px;
+height: auto;
+margin-bottom: 5px;
+padding-bottom: 5px;
+}
+.logo-container{
+margin-top: -29px;
+text-align: left;
+border-radius: 5px;
+height: 100px;
+position: sticky;
+}
+.container{
+    margin-top: -50px;
+}
+.nav-link {
+    color: white !important;
+    position: relative;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
 
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff2f2;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
 .card {
     background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
     border-radius: 12px;

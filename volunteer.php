@@ -64,7 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
+<style>
+    .navbar {
+    background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,9 +85,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <link rel="stylesheet" href="volunteer.css">
 </head>
 <body>
-    <div class="card">
+    <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+    <div class="logo-container">
+    <img src="img/owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon bg-light"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
+        <li class="nav-item" style="padding-right: 20px;">
+          <a class="nav-link" href="dokumentasi.html">Documentation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="card" style="margin-top: 130px; ">
         <div class="card-header">
-            Fill This Form
+            Please Fill This Form
         </div>
         <div class="card-body">
         <form action="volunteer.php" method="POST">
