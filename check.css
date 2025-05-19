@@ -1,0 +1,101 @@
+body, h1, table {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+   background: linear-gradient(to left, #FFF2F2, #A9B5DF);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.navbar {
+background-color: linear-gradient(to bottom, #FFF2F2, #A9B5DF);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+padding: 10px;
+height: 15%; /* Atau nilai persentase lain sesuai keinginan Anda */
+}
+
+.container {
+flex-grow: 1; 
+padding-top: 80px; 
+padding-bottom: 30px;
+}
+
+h1 {
+    margin-top: 30px;
+    color: #2d336b;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.table {
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+overflow: hidden; 
+}
+
+.table th {
+background-color: #a6b1e1; 
+color: #2d336b;
+font-weight: bold;
+text-align: left;
+padding: 12px 15px;
+border-bottom: 2px solid #2d336b;
+}
+
+.table td {
+padding: 10px 15px;
+text-align: left;
+border-bottom: 1px solid #A9B5DF;
+}
+
+.table tr {
+border-bottom: none;
+}
+
+.table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.logo-container {
+margin-right: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+color: #a6b1e1 !important;
+}
+
+.btn-primary {
+    background-color: #7886c7; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block; 
+}
+
+.btn-primary:hover {
+    background-color: #2d336b; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(100, 149, 237, 0.5); 
+}
+
+.mt-3 {
+    margin-top: 1rem; 
+}
+
