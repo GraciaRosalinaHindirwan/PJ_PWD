@@ -31,10 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       exit(); 
     } else {
       try {
+        $id = $_SESSION["id"];
         $connection = getConnection();
-        $sql = "INSERT INTO donate (name, donation_type, amount, massage, date) VALUE (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO donate (user_id, name, donation_type, amount, massage, date) VALUE (?, ?, ?, ?, ?)";
         $stmt = $connection->prepare($sql); //prepared statement 
-        $stmt->execute([$name, $donationType, $amount, $massage, $date]);
+        $stmt->execute([$id, $name, $donationType, $amount, $massage, $date]);
         $_SESSION["success_message"] = "Form Successfully Submitted";
         $_SESSION["last_donation_type"] = $donationType;
         $_SESSION["last_donation_amount"] = $amount;

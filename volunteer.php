@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Tanggal pendaftaran harus diisi.";
     }
 
-  
+    $id = $_SESSION["id"];
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
         redirect("volunteer.php"); 
@@ -47,11 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             $connection = getConnection(); 
-            $sql = "INSERT INTO volunteer (name, skill, avail, status, date) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO volunteer (user_id, name, skill, avail, status, date) VALUES (?, ?, ?, ?, ?)";
             
             $stmt = $connection->prepare($sql); // 
 
-            $stmt->execute([$name, $skill, $avail, $status, $date]);
+            $stmt->execute([$id, $name, $skill, $avail, $status, $date]);
             
             $_SESSION['success_message'] = "Pendaftaran berhasil!";
             redirect("success.php"); 
