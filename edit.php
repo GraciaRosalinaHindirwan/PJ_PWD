@@ -32,33 +32,66 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="edit.css">
   </head>
+
+  <style>
+    body{
+    background: linear-gradient(to left, #FFF2F2, #A9B5DF);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Quicksand";
+    }
+    .navbar-nav .nav-link:hover {
+    color: #a6b1e1 !important;
+}
+  </style>
+
   <body>
-    <div class="header">
-        <img src="img/owhc.png" alt="">
+<nav class="navbar navbar-expand-lg fixed-top" style="margin-bottom: 50px;">
+  <div class="container-fluid">
+    <div class="logo-container">
+    <img src="img/owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
     </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon bg-light"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
+        <li class="nav-item" style="padding-right: 20px;">
+          <a class="nav-link" href="dokumentasi.php">Documentation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
     <div class="edit">
-    <h1 style="color: #7886c7;">Edit Profile</h1> <br>
+    <h1 style="color: #7886c7;">Edit Account</h1> <br>
 
     <form action="update.php" method="post">
     <input type="hidden" name="id" value="<?=$data['id']?>">
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingname" placeholder="username" name="username">
-            <label for="floatingname" class="bi bi-person"> Username</label>
+        <div class="form-floating" style="margin-bottom: 10px;">
+            <input type="email" class="form-control" id="floatingemail" placeholder="name@example.com" name="email" required>
+            <label for="floatingemail" class="bi bi-envelope"> Email</label>
         </div>
-        <br>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingpw" placeholder="Password" name="password">
+            <input type="text" class="form-control" id="floatingUsername" placeholder="Username" name="username" required>
+            <label for="floatingUsername" class="bi bi-person"> Username</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingpw" placeholder="Password" name="password" required>
             <label for="floatingpw" class="bi bi-key"> Password</label>
         </div>
-
         <div>
-            <button type="submit" class="btn btn-outline-primary" id="CTA" name="submit">UPDATE</button>
+            <button type="submit" class="btn btn-outline-primary" id="CTA" name="submit">Save Changes</button>
         </div>
     </form>
     </div>
   </div>
   
   </body>
-</html> 
+</html>

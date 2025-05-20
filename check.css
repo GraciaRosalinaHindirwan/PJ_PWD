@@ -12,10 +12,9 @@ body{
 }
 
 .navbar {
-background-color: linear-gradient(to bottom, #FFF2F2, #A9B5DF);
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 padding: 10px;
-height: 15%; /* Atau nilai persentase lain sesuai keinginan Anda */
+height: 15%; 
 }
 
 .container {

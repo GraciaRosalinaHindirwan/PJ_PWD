@@ -59,7 +59,7 @@ $username = $_SESSION["username"];
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
         <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="dokumentasi.html">Documentation</a>
+          <a class="nav-link" href="dokumentasi.php">Documentation</a>
         </li>
         <li class="nav-item" style="padding-right: 20px;">
           <a class="nav-link" href="edit.php">Edit Profile</a>
