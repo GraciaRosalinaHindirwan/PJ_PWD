@@ -1,53 +1,43 @@
-<?php
-include_once("koneksi.php");
+<?php 
+require_once("koneksi.php");
+require_once("route.php");
 require_once("auth.php");
 
 if (!isLogin()) {
     redirect("login.php");
 }
 
-$id = $_SESSION["id"];
-
-if (isset($_POST['submit'])) {
-    $new_username = $_POST['username'];
-    $new_password = $_POST['password'];
-    $pdo = getConnection();
-
-    try {
-        $query = "UPDATE user SET username = :username";
-        if (!empty($new_password)) {
-            $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $query .= ", password = :password";
-        }
-        $query .= " WHERE id = :id";
-
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':username', $new_username, PDO::PARAM_STR);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        if (!empty($new_password)) {
-            $stmt->bindParam(':password', $hashed_password, PDO::PARAM_STR);
-        }
-        $stmt->execute();
-
-        $stmt_select = $pdo->prepare("SELECT username FROM user WHERE id = :id");
-        $stmt_select->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt_select->execute();
-        $user_data = $stmt_select->fetch(PDO::FETCH_ASSOC);
-
-        if ($user_data && isset($user_data['username'])) {
-            // Simpan nama pengguna yang baru ke dalam session
-            $_SESSION['username'] = $user_data['username'];
-
-            header("Location: tampiledit.php");
-            exit();
-        } else {
-            echo "Gagal memperbarui session username.";
-        }
-
-    } catch (PDOException $e) {
-        echo "Error updating data: " . $e->getMessage();
-    }
-} else {
-    echo "Akses tidak valid.";
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+   redirect(edit.php);
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $new_email = $_POST["username"];
+   $new_username = $_POST["username"];
+}
+
+$id = $_SESSION["id"];
+try {
+    $connection = getConnection();
+
+    //check email, usn
+    $check_sql = "SELECT id FROM user WHERE(username = :username OR email = :email) AND id != :current_id";
+    $stmt = $connection->prepare($check_sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll($new_email, $new_username, $id);
+
+    if ($result) {
+        redirect("edit.php");
+    }
+
+    //update
+    $sql = "UPDATE user SET username = :username, email = :email WHERE id = :id";
+    $stmt = $connection->prepare($sql);
+    $stmt->execute([$new_email, $new_username, $id]);
+
+} catch (PDOException $e) {
+    echo "Error updating data: " . $e->getMessage();
+    redirect("edit.php");
+}
+
 ?>

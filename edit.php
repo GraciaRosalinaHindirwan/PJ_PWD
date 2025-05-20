@@ -1,30 +1,41 @@
 <?php
-session_start();
-require_once("koneksi.php");
+require_once ("koneksi.php");
+require_once ("auth.php");
+require_once("route.php");
 
-if (!isset($_SESSION["id"])) {
-    die("Anda belum login.");
+if (!isLogin()) {
+    redirect("login.php");
 }
 
 $id = $_SESSION["id"];
-$pdo = getConnection();
-
 try {
-    $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+  $connection = getConnection();
+  $sql = "SELECT email, username FROM user WHERE id = ?";
+  $stmt = $connection->prepare($sql);
+  $stmt->bindParam(1, $id); //1 untuk placeholder
+  $stmt -> execute();
+  $result = $stmt->fetch(); //ambil satu baris
+  
+  if($result){
+    $current_email = $result['email']; //data yang baru saja di ambil dari DB
+    $current_usn = $result['username']; 
+    $id = $_SESSION["id"];
+  } else {
+    $current_email = '';
+    $current_usn = '';
+  }
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-    die();
+  echo "Something's wrong. Try Again";
+  exit();
 }
+
 ?>
 
 <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Page</title>
+    <title>Edit Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,10 +92,6 @@ try {
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingUsername" placeholder="Username" name="username" required>
             <label for="floatingUsername" class="bi bi-person"> Username</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingpw" placeholder="Password" name="password" required>
-            <label for="floatingpw" class="bi bi-key"> Password</label>
         </div>
         <div>
             <button type="submit" class="btn btn-outline-primary" id="CTA" name="submit">Save Changes</button>
