@@ -6,13 +6,11 @@ if (!isLogin()) {
     redirect("login.php");
 }
 
-// Ambil ID pengguna dari session
 $id = $_SESSION["id"];
 
-// Proses data yang dikirim dari form edit
 if (isset($_POST['submit'])) {
     $new_username = $_POST['username'];
-    $new_password = $_POST['password']; // Pastikan kamu hashing password sebelum disimpan
+    $new_password = $_POST['password'];
     $pdo = getConnection();
 
     try {
@@ -50,7 +48,6 @@ if (isset($_POST['submit'])) {
         echo "Error updating data: " . $e->getMessage();
     }
 } else {
-    // Jika halaman update diakses tanpa submit form
     echo "Akses tidak valid.";
 }
 ?>

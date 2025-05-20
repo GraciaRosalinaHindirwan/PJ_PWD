@@ -1,5 +1,5 @@
 body{
-    background-image: url(img/header-regis.webp);
+    background: linear-gradient(to left, #FFF2F2, #A9B5DF);
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,7 +20,7 @@ body{
     padding: 30px;
     background-color: #fff2f2e6;
     border-radius: 20px;
-    width: 400px;
+    width: 500px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@ body{
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.edit input[type="text"], input[type="password"]{
+.edit input[type="text"], input[type="password"], input[type="email"]{
     padding: 10px;
     border: 1px solid #2d336b;
     border-radius: 5px;
