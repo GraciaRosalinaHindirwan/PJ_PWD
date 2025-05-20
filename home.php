@@ -61,6 +61,9 @@ $username = $_SESSION["username"];
         <li class="nav-item" style="padding-right: 20px;">
           <a class="nav-link" href="dokumentasi.php">Documentation</a>
         </li>
+        <li class="nav-item" style="padding-right: 20px;">
+          <a class="nav-link" href="edit.php">Edit Profile</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>
         </li>

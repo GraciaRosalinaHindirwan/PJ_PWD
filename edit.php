@@ -41,7 +41,9 @@ try {
     background-size: cover;
     font-family: "Quicksand";
     }
-    
+    .navbar-nav .nav-link:hover {
+    color: #a6b1e1 !important;
+}
   </style>
 
   <body>
