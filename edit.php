@@ -50,11 +50,17 @@ try {
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
+    
     font-family: "Quicksand";
     }
     .navbar-nav .nav-link:hover {
-    color: #a6b1e1 !important;
-}
+    color: #a6b1e1 !important;}
+    .navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    height: 15%; 
+    }
   </style>
 
   <body>
