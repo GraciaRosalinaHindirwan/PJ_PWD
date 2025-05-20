@@ -8,12 +8,9 @@ if (!isLogin()) {
     redirect("login.php");
 }
 
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit;
-}
-
 $username = $_SESSION["username"];
+
+
 ?>
 
 <!DOCTYPE html>

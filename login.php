@@ -1,6 +1,7 @@
 <?php
 require_once("auth.php");
 require_once("koneksi.php");
+require_once ("route.php");
 
 if (isLogin()) {
     require_once ("route.php");
@@ -11,16 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username =  ($_POST["username"]);
     $password =  ($_POST["password"]);
 
-     $result = loginAttempt($username, $password);
+    $result = loginAttempt($username, $password);
 
     if ($result) {
         $_SESSION["username"] = $username;
         $_SESSION["user_id"] = $result["id"];
-        require_once ("route.php");
         redirect("home.php");
   } else {
         $_SESSION["login_error"] = "Invalid Username or Password";
-        require_once("route.php");
         redirect("login.php");
   }
 

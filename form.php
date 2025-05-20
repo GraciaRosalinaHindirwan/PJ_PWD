@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (!empty($errors)) {
       $_SESSION['errors'] = $errors;
+      
       redirect("form.php"); 
       exit(); 
     } else {
@@ -35,13 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $connection->prepare($sql); //prepared statement 
         $stmt->execute([$name, $donationType, $amount, $massage, $date]);
         $_SESSION["success_message"] = "Form Successfully Submitted";
+        $_SESSION["last_donation_type"] = $donationType;
+        $_SESSION["last_donation_amount"] = $amount;
         redirect("thanks.php");
         exit();
       } catch (PDOException $e) {
         $_SESSION['errors'] =  "Something is Wrong";
         redirect("form.php");
         exit();
-        }
+      }
     }
 }
 
