@@ -90,6 +90,7 @@ try {
                         </div>
                         <div class="d-flex gap-3 justify-content-center">
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <a href="#" class="btn btn-primary">Delete</a>
                         </div>
                 </form>
                     </div>
