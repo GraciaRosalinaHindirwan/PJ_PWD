@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("koneksi.php");
 require_once("route.php");
 require_once("auth.php");

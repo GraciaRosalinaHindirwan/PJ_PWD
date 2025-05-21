@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 60px;
-}
+    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
