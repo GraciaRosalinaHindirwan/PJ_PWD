@@ -48,6 +48,6 @@ $amount = $_SESSION["last_donation_amount"] ?? 0;
     <a href="donors.php" class="btn btn-primary mt-3">Check Other Donors </a>
   </div>
 </div>
-    
+
 </body>
 </html>
