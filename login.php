@@ -41,6 +41,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="login.css">
 </head>
+
+<style>
+    body{
+    background-image: url(img/header-regis.webp);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    font-family: "Quicksand";
+    }
+    .login{
+    padding: 30px;
+    background-color: #fff2f2e6;
+    border-radius: 20px;
+    width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8px;
+    }
+</style>
+
 <body>
     <div class="header">
         <img src="img/owhc.png" alt="">
@@ -60,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-floating">
                         <input type="text" class="form-control" id="floatingname" placeholder="username" name="username">
                         <label for="floatingname" class="bi bi-person"> Username</label>
-                    </div>
+                     </div>
                     <br>
                     <div class="form-floating">
                         <input type="password" class="form-control" id="floatingpw" placeholder="Password" name="password">

@@ -66,7 +66,7 @@ if ($target_donate > 0) {
 </nav>
 
 <div class="container mt-5 pt-5">
-    <h1 class="mb-4"> HERE'S OUR DONORS</h1>
+    <h1 class="mb-4 mt-5"> HERE'S OUR DONORS</h1>
 
     <div class="progress-section">
             <h5 class="text-center mb-3" style ="color:white;">Our Goal: IDR <?php echo number_format($target_donate); ?></h5>
