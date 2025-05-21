@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $new_email = $_POST["username"];
+   $new_email = $_POST["email"];
    $new_username = $_POST["username"];
 }
 
@@ -21,17 +21,17 @@ try {
     $connection = getConnection();
 
     //check email, usn
-    $check_sql = "SELECT id FROM user WHERE(username = :username OR email = :email) AND id != :current_id";
+    $check_sql = "SELECT id FROM user WHERE (username = ? OR email = ?) AND id != ?";
     $stmt = $connection->prepare($check_sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll($new_email, $new_username, $id);
+    $stmt->execute([$new_email, $new_username, $id]);
+    $result = $stmt->fetchAll();
 
     if ($result) {
         redirect("edit.php");
     }
 
     //update
-    $sql = "UPDATE user SET username = :username, email = :email WHERE id = :id";
+    $sql = "UPDATE user SET username = ?, email = ? WHERE id = ?";
     $stmt = $connection->prepare($sql);
     $stmt->execute([$new_email, $new_username, $id]);
 
