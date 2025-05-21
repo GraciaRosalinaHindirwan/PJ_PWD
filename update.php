@@ -8,7 +8,7 @@ if (!isLogin()) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-   redirect(edit.php);
+   redirect(editProfile.php);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,6 +34,7 @@ try {
     $sql = "UPDATE user SET username = ?, email = ? WHERE id = ?";
     $stmt = $connection->prepare($sql);
     $stmt->execute([$new_username, $new_email, $id]);
+    $_SESSION["username"] = $new_username;
 
 } catch (PDOException $e) {
     echo "Error updating data: " . $e->getMessage();
@@ -41,3 +42,15 @@ try {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data success</title>
+</head>
+<body>
+    <h1>Your Account is Alread Changes</h1>
+</body>
+</html>

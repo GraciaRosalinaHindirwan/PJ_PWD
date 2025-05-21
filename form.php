@@ -33,16 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       try {
         $id = $_SESSION["id"];
         $connection = getConnection();
-        $sql = "INSERT INTO donate (user_id, name, donation_type, amount, massage, date) VALUE (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO donate (user_id, name, donation_type, amount, massage, date) VALUE (?, ?, ?, ?, ?, ?)";
         $stmt = $connection->prepare($sql); //prepared statement 
         $stmt->execute([$id, $name, $donationType, $amount, $massage, $date]);
-        $_SESSION["success_message"] = "Form Successfully Submitted";
+        $_SESSION["success_message"] = array ("Form Successfully Submitted");
         $_SESSION["last_donation_type"] = $donationType;
         $_SESSION["last_donation_amount"] = $amount;
         redirect("thanks.php");
         exit();
       } catch (PDOException $e) {
-        $_SESSION['errors'] =  "Something is Wrong";
+        $_SESSION['errors'] = array ("Something is Wrong");
         redirect("form.php");
         exit();
       }
