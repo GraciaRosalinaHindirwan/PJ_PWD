@@ -23,7 +23,7 @@ try {
     //check email, usn
     $check_sql = "SELECT id FROM user WHERE (username = ? OR email = ?) AND id != ?";
     $stmt = $connection->prepare($check_sql);
-    $stmt->execute([$new_email, $new_username, $id]);
+    $stmt->execute([$new_username, $new_email, $id]);
     $result = $stmt->fetchAll();
 
     if ($result) {
@@ -33,7 +33,7 @@ try {
     //update
     $sql = "UPDATE user SET username = ?, email = ? WHERE id = ?";
     $stmt = $connection->prepare($sql);
-    $stmt->execute([$new_email, $new_username, $id]);
+    $stmt->execute([$new_username, $new_email, $id]);
 
 } catch (PDOException $e) {
     echo "Error updating data: " . $e->getMessage();
