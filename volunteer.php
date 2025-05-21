@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             $connection = getConnection(); 
-            $sql = "INSERT INTO volunteer (user_id, name, skill, avail, status, date) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO volunteer (user_id, name, skill, avail, status, date) VALUES (?, ?, ?, ?, ?, ?)";
             
             $stmt = $connection->prepare($sql); // 
 
