@@ -39,7 +39,7 @@ $amount = $_SESSION["last_donation_amount"] ?? 0;
         </div>
     </nav>
 
-    <div class="card" style="width: 100vh;">
+    <div class="card">
   <div class="card-body">
     <h5 class="card-title">Thank you for your donation, <?=$username?></h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">Your kindness and generosity are deeply appreciated.</h6>
