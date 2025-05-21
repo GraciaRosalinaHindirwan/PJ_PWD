@@ -56,7 +56,7 @@ try {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
         <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="dokumentasi.php">Documentation</a>
+          <a class="nav-link" href="home.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>
@@ -74,7 +74,7 @@ try {
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Edit Your Account</h5>
+                        <h1 class="card-title">Edit Your Account</h1>
                         <p class="card-text">"Please Fill Carefully"</p>
                         <div class="card-text">
                 <form action="update.php" method="POST">                   
