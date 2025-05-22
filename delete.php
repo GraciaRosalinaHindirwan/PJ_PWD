@@ -24,5 +24,6 @@ try {
 } catch (PDOException $e) {
     $_SESSION['error_message'] = "Error Delete Account. TRY AGAIN";
     redirect("home.php");
+    var_dump($e->getMessage());
     exit();
 }
