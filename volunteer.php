@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <link rel="stylesheet" href="volunteer.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
     <div class="logo-container">
     <img src="img/owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
