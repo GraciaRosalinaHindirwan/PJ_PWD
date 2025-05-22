@@ -62,9 +62,9 @@ try {
 <div class="card" style="width: 50vh;">
   <div class="card-body">
     <h5 class="card-title">Changes Data</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">success</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Success</h6>
     <p class="card-text">You already changes data to username <b><?php echo($new_username) ?></b> and email <b><?php echo($new_email)?></b></p>
-   <a href="#" class="btn btn-primary">Go Home</a>
+   <a href="home.php" class="btn btn-primary">Go Home</a>
   </div>
 </div>
 </body>
