@@ -27,8 +27,17 @@ try {
     $result = $stmt->fetchAll();
 
     if ($result) {
+        if (strtolower($result['username']) === strtolower($new_username)) { //strtolower untuk bandingin dengan case sensi
+            $_SESSION['error_message'] = "Username already taken."; {
+        } else if (strtolower($result['email']) === strtolower($new_email)) {
+            $_SESSION['error_message'] = "Email already taken";
+        } else {
+            $_SESSION['error_message'] = "username or email already exist";
+        }
         redirect("editProfile.php");
+        exit();
     }
+}
 
     //update
     $sql = "UPDATE user SET username = ?, email = ? WHERE id = ?";
@@ -37,8 +46,9 @@ try {
     $_SESSION["username"] = $new_username;
 
 } catch (PDOException $e) {
-    echo "Error updating data: " . $e->getMessage();
+    $_SESSION['error_message'] = "ERROR UPDATING DATA";
     redirect("editProfile.php");
+    exit();
 }
 
 ?>
