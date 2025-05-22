@@ -229,8 +229,17 @@ position: sticky;
     </div>
   </div>
 </nav>
+<?php 
+ if (isset($_SESSION['error_message'])) {
+        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_message'] . '</div>';
+        unset($_SESSION['error_message']); // Hapus pesan setelah ditampilkan
+    }
+    if (isset($_SESSION['success_message'])) {
+        echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+        unset($_SESSION['success_message']); // Hapus pesan setelah ditampilkan
+    }
+?>
 
-<<<<<<< HEAD
 <div class="card mx-auto" style="margin-top: 130px; max-width: 600px;">
   <div class="card-header text-center">
     Change your data!
@@ -263,43 +272,6 @@ position: sticky;
     </form>
   </div>
 </div>
-
-
-
-    
-=======
-    <div class="d-flex justify-content-center align-items-center min-vh-100">
-        <div class="card mb-3" style="max-width: 800px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="img/meng.jpg" class="img-fluid rounded-start" alt="Success illustration">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h1 class="card-title">Edit Your Account</h1>
-                        <p class="card-text">"Please Fill Carefully"</p>
-                        <div class="card-text">
-                <form action="update.php" method="POST">                   
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingname" placeholder="username" name="username">
-                                <label for="floatingname" class="bi bi-person"> Username</label>
-                            </div>
-                            <br>
-                            <div class="form-floating">
-                                <input type="email" class="form-control" id="floatingemail" placeholder="email" name="email">
-                                <label for="floatingemail" class="bi bi-person"> E-mail</label>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 justify-content-center">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                              </div>
-                            </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
->>>>>>> c1b13aef60bc058375b13b8709d1d3017d134f6e
   
   </body>
 </html>
