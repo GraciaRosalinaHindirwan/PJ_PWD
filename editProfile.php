@@ -19,13 +19,12 @@ try {
   if($result){
     $current_email = $result['email']; //data yang baru saja di ambil dari DB
     $current_usn = $result['username']; 
-    $id = $_SESSION["id"];
   } else {
     $current_email = '';
     $current_usn = '';
   }
 } catch (PDOException $e) {
-  echo "Something's wrong. Try Again";
+  $_SESSION['error_message'] = "Something is Wrong. TRY AGAIN";
   exit();
 }
 
@@ -90,9 +89,8 @@ try {
                         </div>
                         <div class="d-flex gap-3 justify-content-center">
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
-                                <a href="#" class="btn btn-primary">Delete</a>
-                        </div>
-                </form>
+                              </div>
+                            </form>
                     </div>
                 </div>
             </div>

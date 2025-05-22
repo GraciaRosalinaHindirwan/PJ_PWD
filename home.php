@@ -66,6 +66,12 @@ $username = getLoggedUser()["username"];
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>
         </li>
+        <li class="nav-item">
+          <form action="delete.php" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus akun Anda secara permanen? Tindakan ini tidak bisa dibatalkan!');" class="d-inline">
+            <button type="submit" class="nav-link btn btn-link text-danger">
+              Delete Account
+            </button>
+          </form>
       </ul>
     </div>
   </div>

@@ -37,7 +37,7 @@ try {
     $_SESSION["username"] = $new_username;
 
 } catch (PDOException $e) {
-    echo "Error updating data: " . $e->getMessage();
+    $_SESSION['error_message'] = "ERROR UPDATING DATA";
     redirect("editProfile.php");
 }
 
