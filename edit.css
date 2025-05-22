@@ -1,4 +1,60 @@
-.card {
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url(img/edit.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#logo{
+width: 200px;
+height: auto;
+margin-bottom: 5px;
+padding-bottom: 5px;
+}
+.logo-container{
+margin-top: -29px;
+text-align: left;
+border-radius: 5px;
+height: 100px;
+position: sticky;
+}
+.container{
+    margin-top: -50px;
+}
+    .nav-link {
+    color: white !important;
+    position: relative;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff2f2;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+    .navbar {
+    background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+    height: auto; 
+    }
+    .card {
     background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -88,3 +144,8 @@
     background-color:#2D336B;
     transform: translateY(0);
 }
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;}
