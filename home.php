@@ -64,12 +64,12 @@ $username = getLoggedUser()["username"];
           <a class="nav-link" href="editProfile.php">Edit Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
+          <a class="nav-link" href="logout.php">LogOut</a>
         </li>
         <li class="nav-item">
           <form action="delete.php" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete your account? This action is irreversible!');" class="d-inline">
             <button type="submit" class="nav-link btn btn-link text-danger">
-              Delete Account
+              Delete
             </button>
           </form>
       </ul>
