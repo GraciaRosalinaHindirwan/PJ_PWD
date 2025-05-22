@@ -63,7 +63,7 @@ $username = getLoggedUser()["username"];
         <li class="nav-item" style="padding-right: 20px;">
           <a class="nav-link" href="editProfile.php">Edit Profile</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="padding-right: 20px;">
           <a class="nav-link" href="logout.php">LogOut</a>
         </li>
         <li class="nav-item">
