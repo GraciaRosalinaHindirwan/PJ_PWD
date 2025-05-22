@@ -5,15 +5,15 @@ require_once("auth.php");
 
 if (!isLogin()) {
     redirect("login.php");
-}
-
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    redirect("editProfile.php");
+    exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $new_email = $_POST["email"];
    $new_username = $_POST["username"];
+} else {
+    redirect("editProfile.php");
+    exit();
 }
 
 $id = $_SESSION["id"];
@@ -21,14 +21,13 @@ try {
     $connection = getConnection();
 
     //check email, usn
-    $check_sql = "SELECT id FROM user WHERE (username = ? OR email = ?) AND id != ?";
+    $check_sql = "SELECT id, username, email FROM user WHERE (LOWER(username) = LOWER(?) OR LOWER(email) = LOWER(?)) AND id != ?";
     $stmt = $connection->prepare($check_sql);
     $stmt->execute([$new_username, $new_email, $id]);
-    $result = $stmt->fetchAll();
-
+    $result = $stmt->fetch();
     if ($result) {
-        if (strtolower($result['username']) === strtolower($new_username)) { //strtolower untuk bandingin dengan case sensi
-            $_SESSION['error_message'] = "Username already taken."; {
+        if (strtolower($result['username']) === strtolower($new_username)) { 
+            $_SESSION['error_message'] = "Username already taken."; 
         } else if (strtolower($result['email']) === strtolower($new_email)) {
             $_SESSION['error_message'] = "Email already taken";
         } else {
@@ -37,7 +36,7 @@ try {
         redirect("editProfile.php");
         exit();
     }
-}
+
 
     //update
     $sql = "UPDATE user SET username = ?, email = ? WHERE id = ?";

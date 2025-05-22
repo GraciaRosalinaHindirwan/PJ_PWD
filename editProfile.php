@@ -8,6 +8,9 @@ if (!isLogin()) {
 }
 
 $id = $_SESSION["id"];
+$current_email = '';
+$current_usn = '';
+
 try {
   $connection = getConnection();
   $sql = "SELECT email, username FROM user WHERE id = ?";
@@ -17,11 +20,13 @@ try {
   $result = $stmt->fetch(); //ambil satu baris
   
   if($result){
-    $current_email = $result['email']; //data yang baru saja di ambil dari DB
-    $current_usn = $result['username']; 
+    $current_email = $result["email"]; //data yang baru saja di ambil dari DB
+    $current_usn = $result["username"]; 
+    $_SESSION["email"] = $current_email;
   } else {
-    $current_email = '';
-    $current_usn = '';
+     $_SESSION["error_message"] = "User data not found.";
+        redirect("home.php");
+        exit();
   }
 } catch (PDOException $e) {
   $_SESSION['error_message'] = "Something is Wrong. TRY AGAIN";
@@ -212,7 +217,7 @@ position: sticky;
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top" style="margin-bottom: 50px;">
+<nav class="navbar navbar-expand-lg fixed-top" style="margin-bottom: 50px;">
   <div class="container-fluid">
     <div class="logo-container">
     <img src="img/owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
@@ -229,22 +234,21 @@ position: sticky;
     </div>
   </div>
 </nav>
-<?php 
- if (isset($_SESSION['error_message'])) {
-        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_message'] . '</div>';
-        unset($_SESSION['error_message']); // Hapus pesan setelah ditampilkan
-    }
-    if (isset($_SESSION['success_message'])) {
-        echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
-        unset($_SESSION['success_message']); // Hapus pesan setelah ditampilkan
-    }
-?>
 
 <div class="card mx-auto" style="margin-top: 130px; max-width: 600px;">
   <div class="card-header text-center">
     Change your data!
   </div>
-
+  <?php 
+ if (isset($_SESSION["error_message"])) {
+        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_message'] . '</div>';
+        unset($_SESSION['error_message']); 
+    }
+    if (isset($_SESSION["success_message"])) {
+        echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+        unset($_SESSION['success_message']); 
+    }
+?>
   <div class="card-body d-flex flex-column align-items-center text-center">
     <!-- Gambar Profil -->
     <img src="img/meng.jpg" class="img-fluid rounded-circle mb-4" 
@@ -253,8 +257,6 @@ position: sticky;
 
     <!-- Form -->
     <form action="update.php" method="POST" style="width: 100%; max-width: 400px;">
-      <input type="hidden" name="id" value="<?=$data['id']?>">
-
       <div class="mb-3 text-start">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" name="email" value="<?= $current_email ?>" required>
