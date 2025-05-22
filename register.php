@@ -13,15 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  //validasi
  $errors = array();
    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-   $errors[] = "Format E-mail Tidak Valid";
+   $errors[] = "Invalid email address format";
    } if (strlen($username) < 3) {
-   $errors[] = "Username Minimal 3 Karakter";
+   $errors[] = "Username must be at least 3 characters";
    } if ($password != $confirm) {
-   $errors[] = "Password Tidak Sama";
+   $errors[] = "Password mismatch.";
    } if (strlen($password)<6) {
-   $errors[] = "Password Minimal 6 Karakter";
+   $errors[] = "Password must be at least 6 characters.";
    } if(!$check){
-   $errors[] = "Anda Harus Menyetujui Syarat dan Ketentuan";
+   $errors[] = "You need to agree to the Terms and Conditions";
    }
 
     $username = htmlspecialchars($username);
@@ -37,12 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO user (email, username, password) VALUE (?, ?, ?)";
             $stmt = $connection->prepare($sql); //prepared statement 
             $stmt->execute([$email, $username, $password]);
-            $_SESSION["success_message"] = "Register Berhasil";
+            $_SESSION["success_message"] = "Register success";
             redirect("login.php");
             exit();
 
         } catch (PDOException $e) {
-            $_SESSION['errors'] = "Terjadi Kesalahan";
+            $_SESSION['errors'] = "something is wrong";
             redirect("register.php");
             exit();
             
