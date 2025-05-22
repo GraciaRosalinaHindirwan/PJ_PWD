@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
 
         } catch (PDOException $e) {
-            $_SESSION['errors'] = "something is wrong";
+            $_SESSION['errors'] = ["something is wrong"];
             redirect("register.php");
             exit();
             
