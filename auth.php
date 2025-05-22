@@ -33,4 +33,18 @@ function isLogin(): bool {
   return true;
 }
 
+function getLoggedUser(){
+  if (isLogin()) {
+    $id = $_SESSION["id"];
+    $connection = getConnection();
+    $sql = "SELECT email, username FROM user WHERE id = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt -> execute([$id]);
+    $result = $stmt->fetch();
+
+    return $result;
+  } 
+  return false;
+} 
+
 ?>

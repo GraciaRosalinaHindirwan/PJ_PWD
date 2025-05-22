@@ -12,10 +12,9 @@ body{
 }
 
 .navbar {
-background-color: linear-gradient(to bottom, #FFF2F2, #A9B5DF);
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 padding: 10px;
-height: 15%;
+height: 15%; 
 }
 
 .container {
@@ -95,27 +94,32 @@ color: #a6b1e1 !important;
     box-shadow: 0 0 0 0.2rem rgba(100, 149, 237, 0.5); 
 }
 
+.btn-outline-secondary{
+     background-color: #7886c7; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block; 
+}
+
+.btn-outline-secondary:hover{
+    background-color: #2d336b; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-secondary:focus{
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(100, 149, 237, 0.5); 
+}
+
 .mt-3 {
     margin-top: 1rem; 
 }
 
-.progress-section {
-    border-style: double;
-    border-color: #2d336b;
-    background-color: #9FB3DF;
-    padding: 20px;
-    border-radius: 8px;        
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
-.progress {
-    height: 30px; 
-    font-size: 1rem; 
-    margin-top: 15px;
-}
-        
-.progress-bar {
-    background-color: #2d336b;
-}

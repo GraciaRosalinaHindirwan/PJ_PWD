@@ -73,7 +73,6 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     background-color: #fff2f2;
     transition: 0.3s ease;
 }
-
 .nav-link:hover::after {
     width: 100%;
 }
@@ -96,4 +95,3 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
-
