@@ -160,7 +160,7 @@ $username = getLoggedUser()["username"];
 <div style="padding: 40px 0; text-align: center; margin-top: 50px;" class="help">
   <h2 style="color: #2D336B;">Did You Need Help? </h2>
   <p style="color: #2D336B;">Here's the Tutorial for help you</p>
-  <a href = "#" class="bi bi-question-circle help-link"> Click Me! </a>
+  <a href = "tutorial.php" class="bi bi-question-circle help-link"> Click Me! </a>
 </div>
 
 <!-- Contact Section -->
