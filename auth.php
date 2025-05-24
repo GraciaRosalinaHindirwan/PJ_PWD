@@ -1,7 +1,11 @@
 <?php 
 require_once("koneksi.php");
 
-session_start();
+try {
+  session_start();
+} catch (\Throwable $th) {
+  //throw $th;
+}
 
 function isLogin(): bool {
     //cek login
@@ -15,22 +19,32 @@ function isLogin(): bool {
  function loginAttempt(string $username, string $password): bool
 {
   $connection = getConnection();
-  $stmt = $connection->prepare("SELECT id, username FROM user WHERE username = :username AND password = :password");
+  $stmt = $connection->prepare("SELECT id, username, password FROM user WHERE username = :username");
+
   $stmt->execute([
     'username' => $username,
-    'password' => $password
+
   ]);
 
-  $result = $stmt->fetch(PDO::FETCH_OBJ);
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
   if (!$result) {
     return false;
   }
 
-  $_SESSION["id"] = $result->id;
-  $_SESSION["username"] = $result->username;
-
+$hash_password = $result['password'];
+if (VerifyPassword($password, $hash_password)) {
+  $_SESSION["id"] = $result["id"];
+  $_SESSION["username"] = $result["username"];
   return true;
+} else {
+  return false;
+}
+
+  // $_SESSION["id"] = $result->id;
+  // $_SESSION["username"] = $result->username;
+
+  // return true;
 }
 
 function getLoggedUser(){
@@ -46,5 +60,14 @@ function getLoggedUser(){
   } 
   return false;
 } 
+
+function hashPassword( string $password){
+  $hash = password_hash($password, PASSWORD_DEFAULT);
+ return ($hash);
+}
+
+function VerifyPassword( string $password, string $password_hash){
+  return password_verify($password, $password_hash);
+}
 
 ?>

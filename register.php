@@ -1,7 +1,7 @@
 <?php 
-session_start();
 include_once("koneksi.php");
 require_once("route.php"); 
+require_once("auth.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = ($_POST["email"]);
@@ -34,16 +34,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    } else {
         try {
             $connection = getConnection();
+            $hash = hashPassword($password);
             $sql = "INSERT INTO user (email, username, password) VALUE (?, ?, ?)";
             $stmt = $connection->prepare($sql); //prepared statement 
-            $stmt->execute([$email, $username, $password]);
+            $stmt->execute([$email, $username, $hash]);
             $_SESSION["success_message"] = "Register success";
             redirect("login.php");
             exit();
 
         } catch (PDOException $e) {
             $_SESSION['errors'] = ["something is wrong"];
-            redirect("register.php");
+            var_dump($e->getMessage());
+            // redirect("register.php");
             exit();
             
         }
