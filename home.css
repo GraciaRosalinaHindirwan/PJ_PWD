@@ -22,19 +22,17 @@ position: sticky;
     text-align: center;
     padding: 40px 20px;
 }
-.carousel-item img {
-    height: 400px;
-    object-fit: cover;
-}
+
 .carousel-container {
-max-width: 800px;
+max-width: 1000px;
 margin: 0 auto;
 }
 .carousel-item img {
-height: 600px;
-width: 600px;
-object-fit: cover;
-border-radius: 10px;
+    width: 100%; 
+    height: 500px; 
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0;
 }
 .carousel-caption {
 background-color: rgba(126, 132, 162, 0.8); 

@@ -1,4 +1,4 @@
-<?php
+<?php 
 include_once("koneksi.php");
 require_once("route.php");
 require_once("auth.php");
@@ -8,8 +8,6 @@ if (!isLogin()) {
 }
 
 $username = getLoggedUser()["username"];
-
-
 ?>
 
 <!DOCTYPE html>
@@ -17,21 +15,19 @@ $username = getLoggedUser()["username"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
+    <title>Home page</title>
+    <link rel="stylesheet" href="navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
-</head>
-<style>
-  .navbar {
-    background: linear-gradient(to right,rgb(214, 203, 203), #A9B5DF) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-.help-link {
+<style>
+    .help-link {
   color: #2D336B;
   font-size: 18px;
   text-decoration: none;
@@ -44,40 +40,78 @@ $username = getLoggedUser()["username"];
   text-shadow: 0 0 5 rgb(134, 139, 183); 
 }
 
+  #carouselExampleCaptions {
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
 </style>
+</head>
 <body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="img/logo2.png" alt="logo">
+                </span>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid">
-    <div class="logo-container">
-    <img src="img/owhc1-removebg-preview.png" id="logo" style="width: 200px; height: auto;"> 
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon bg-light"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
-        <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="dokumentasi.php">Documentation</a>
-        </li>
-        <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="editProfile.php">Edit Profile</a>
-        </li>
-        <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="logout.php">LogOut</a>
-        </li>
-        <li class="nav-item">
-          <form action="delete.php" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete your account? This action is irreversible!');" class="d-inline">
-            <button type="submit" class="nav-link btn btn-link text-danger">
-              Delete
-            </button>
-          </form>
-      </ul>
-    </div>
-  </div>
-</nav>
+                <div class="text header-text">
+                    <span class="name">One World Help Care</span>
+                    <span class="profession"> Charity Website </span>
+                </div>
+            </div>
 
-<!-- Welcome Section -->
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="home-new.php">
+                            <i class="bx bx-home-alt icon"></i>
+                            <span class="text nav-text"> Dashboard </span>
+                        </a>
+                    </li>
+                      <li class="nav-link">
+                        <a href="dokumentasi.php">
+                            <i class='bx bxs-file-doc icon'></i>
+                            <span class="text nav-text"> Documentation </span>
+                        </a>
+                    </li>
+                      <li class="nav-link">
+                        <a href="tutorial.php">
+                            <i class='bx bx-help-circle icon'></i>
+                            <span class="text nav-text"> Tutorial </span>
+                        </a>
+                    </li>
+                      <li class="nav-link">
+                        <a href="editProfile.php">
+                            <i class='bx bx-edit icon'></i>
+                            <span class="text nav-text"> Edit Profile </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                 <li class="">
+                        <a href="logout.php">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text"> Logout </span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <form action="delete.php" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete your account? This action is irreversible!');" class="d-inline">
+                            <button type="submit" class="nav-link btn btn-link text-danger">
+                            <span class="text nav-text" style="color:red;"> Delete Account </span>
+                        </button>
+                        </form>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
 <section class="welcome-section" style="margin-top: 70px;">
     <h1 style="font-weight:600; color: #2D336B;">Hello <?php echo htmlspecialchars($username); ?> !</h1>
     <p style="font-size: 20px; font-weight:400; color: #2D336B;">Welcome to OWHC</p>
@@ -104,40 +138,40 @@ $username = getLoggedUser()["username"];
 </section>
 
 <!-- Carousel Section -->
-<div class="container mb-4">
-    <div id="donationCarousel" class="carousel slide" data-bs-ride="carousel">
+
+<div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
         <div class="carousel-inner">
-          <p style="font-size: 16px; font-weight:400; padding-top: 35px; text-align: center; color: #2D336B;">Please Choose a cause to support below:</p>
+          <p style="font-size: 20px; font-weight:500; padding-top: 35px; text-align: center; color: #2D336B;">Please Choose a cause to support below:</p>
             <div class="carousel-item active">
-                <img src="img/pendidikan.jpg" class="d-block w-100" alt="Children Donation">
+                <img src="img/pendidikan.jpg" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Support Children</h5>
                     <p>Help underprivileged children with food, shelter, and education.</p>
                     <a href="select.php" class="btn donate-btn">Help Now</a>
                 </div>
             </div>
-
             <div class="carousel-item">
-                <img src="img/kesehatan.jpg" class="d-block w-100" alt="Environment Donation">
+                <img src="img/kesehatan.jpg" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Help to Healthcare</h5>
-                    <p>Provide medical support to those in need.</p>
+                    <p>Provide medical support to those in need</p>
                     <a href="select.php" class="btn donate-btn">Help Now</a>
-                    
                 </div>
             </div>
-
             <div class="carousel-item">
-                <img src="img/bencana.jpg" class="d-block w-100" alt="Healthcare Donation">
+                <img src="img/bencana.jpg" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Protect the Environment</h5>
                     <p>Support eco-friendly initiatives and reforestation efforts.</p>
                     <a href="select.php" class="btn donate-btn">Help Now</a>
-                    
                 </div>
             </div>
-
-            <div class="carousel-item">
+             <div class="carousel-item">
                 <img src="img/ekonomi.jpg" class="d-block w-100" alt="Healthcare Donation">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Economic Empowerment</h5>
@@ -145,16 +179,16 @@ $username = getLoggedUser()["username"];
                     <a href="select.php" class="btn donate-btn">Help Now</a>
                 </div>
             </div>
-
         </div>
-        <button style="margin-left: -50px;" class="carousel-control-prev" type="button" data-bs-target="#donationCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
         </button>
-        <button style="margin-right: -50px;" class="carousel-control-next" type="button" data-bs-target="#donationCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
 
 <!--Tutorial Section-->
 <div style="padding: 40px 0; text-align: center; margin-top: 50px;" class="help">
@@ -203,5 +237,8 @@ $username = getLoggedUser()["username"];
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+
 </body>
 </html>
