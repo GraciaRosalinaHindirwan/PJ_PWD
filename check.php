@@ -7,11 +7,34 @@ if (!isLogin()) {
     redirect("login.php");
 }
 
-$connection = getConnection();
-$sql = "SELECT * FROM volunteer"; 
-$stmt = $connection->prepare($sql);
-$stmt -> execute();
-$results = $stmt->fetchAll();
+
+//search
+if ($_SERVER["REQUEST_METHOD"]=="GET" && !empty($_GET["search"])) {
+  $search = ($_GET["search"]);
+  
+  try {
+    $connection = getConnection();
+    $sql = "SELECT * FROM volunteer WHERE name LIKE ? OR skill LIKE ? ORDER BY id_volunteer ASC";
+      $stmt = $connection->prepare($sql);
+      $param = "%" . $search . "%";
+      $stmt->execute([$param, $param]);
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      
+      if (empty($results)) {
+        $_SESSION["error"] = "Data '" . $search . "' Tidak Ditemukan";
+      } else {
+        $_SESSION["message_search"] = "Data '" . $search . "' Ditemukan";
+      }
+    } catch (PDOEsception $e) {
+      $_SESSION["error"] = "Data yang dicari tidak ada";
+    }
+  } else {
+    $connection = getConnection();
+    $sql = "SELECT * FROM volunteer"; 
+    $stmt = $connection->prepare($sql);
+    $stmt -> execute();
+    $results = $stmt->fetchAll();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +72,40 @@ $results = $stmt->fetchAll();
 </nav>
 
 <div class="container mt-5 pt-5">
+  <?php if (isset($_SESSION["error"])) {
+                    echo '<div class="alert alert-danger" role="alert">';
+                    $error = $_SESSION["error"];
+                    echo $error . '<br>';
+                    echo '<a href="check.php" class="alert-link">Tampilkan Semua Data</a>';
+                    echo '</div>';
+                    unset($_SESSION["error"]);
+                } ?>
+    <?php 
+                if (isset($_SESSION["message"])) {
+                    echo '<div class="alert alert-success" role="alert">';
+                    $message = $_SESSION["message"];
+                    echo $message . '<br>';
+                    echo '</div>';
+                    unset($_SESSION["message"]);
+                }
+                ?>
+    <?php 
+                if (isset($_SESSION["message_search"])) {
+                    echo '<div class="alert alert-success" role="alert">';
+                    $message_search = $_SESSION["message_search"];
+                    echo $message_search . '<br>';
+                    echo '<a href="check.php" class="alert-link">Tampilkan Semua Data</a>';
+                    echo '</div>';
+                    unset($_SESSION["message_search"]);
+                }
+                ?>
     <h1 class="mb-4 mt-5"> HERE'S OUR VOLUNTEERS</h1>
+     <form class="d-flex" action="check.php" method="GET">
+        <label for="search" class="visually-hidden">Search by Name OR Skill</label>
+        <input type="search" class="form-control me-2" id="search" placeholder="search" name="search">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <br>
     <table class="table table-striped table-bordered">
         <th>Name </th>
         <th>Skill </th>
