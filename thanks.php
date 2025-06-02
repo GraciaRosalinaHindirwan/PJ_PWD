@@ -25,6 +25,7 @@ $amount = $_SESSION["last_donation_amount"] ?? 0;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="thanks.css">
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -33,8 +34,7 @@ $amount = $_SESSION["last_donation_amount"] ?? 0;
             <img src="img/owhc1-removebg-preview.png" id="logo">
 
             <div class="nav-links">
-                <a href="home.php">Home</a>
-                <a href="login.html">Logout</a>
+                <a href="home.php"><i class="bx bx-home-alt icon">Dashboard</i></a>
             </div>
         </div>
     </nav>
