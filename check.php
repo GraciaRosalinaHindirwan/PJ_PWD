@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"]=="GET" && !empty($_GET["search"])) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto" style="padding-right: 30px; font-size: 18px; font-weight: 600;">
         <li class="nav-item" style="padding-right: 20px;">
-          <a class="nav-link" href="home.php"> <i class="bx bx-home-alt icon">Dashboard</i></a>
+          <a class="nav-link" href="home.php"> <i class="bx bx-home-alt icon"> Home</i></a>
         </li>
       </ul>
     </div>

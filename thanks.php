@@ -34,7 +34,7 @@ $amount = $_SESSION["last_donation_amount"] ?? 0;
             <img src="img/owhc1-removebg-preview.png" id="logo">
 
             <div class="nav-links">
-                <a href="home.php"><i class="bx bx-home-alt icon">Dashboard</i></a>
+                <a href="home.php"><i class="bx bx-home-alt icon"> Home</i></a>
             </div>
         </div>
     </nav>
